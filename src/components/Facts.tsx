@@ -2,6 +2,7 @@
 
 import { animate, useInView, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { fill, type Dict } from "@/i18n";
 import { site } from "@/lib/site";
 import { Item, Reveal } from "./Reveal";
 
@@ -25,25 +26,25 @@ function CountUp({ to, suffix }: { to: number; suffix: string }) {
   );
 }
 
-export function Facts() {
+export function Facts({ t }: { t: Dict["facts"] }) {
   return (
     <section id="fatti" className="facts">
       <Reveal group className="facts__grid wrap">
         <Item>
-          <div className="facts__value"><CountUp to={5} suffix=" min" /></div>
-          <div className="facts__label">dal Terminal 2</div>
+          <div className="facts__value"><CountUp to={5} suffix={t.minutes} /></div>
+          <div className="facts__label">{t.terminal}</div>
         </Item>
         <Item>
-          <div className="facts__value">Fuori rotta</div>
-          <div className="facts__label">nessun aereo sopra la casa</div>
+          <div className="facts__value">{t.quiet}</div>
+          <div className="facts__label">{t.quietLabel}</div>
         </Item>
         <Item>
-          <div className="facts__value">Navetta</div>
-          <div className="facts__label">da e per l’aeroporto, su accordo</div>
+          <div className="facts__value">{t.shuttle}</div>
+          <div className="facts__label">{t.shuttleLabel}</div>
         </Item>
         <Item>
           <div className="facts__value">{site.ratings.booking}</div>
-          <div className="facts__label">su Booking, {site.ratings.bookingCount} recensioni</div>
+          <div className="facts__label">{fill(t.rating, { n: site.ratings.bookingCount })}</div>
         </Item>
       </Reveal>
     </section>

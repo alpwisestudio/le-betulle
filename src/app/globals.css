@@ -887,6 +887,10 @@ img {
   .nav__links {
     display: none;
   }
+  .nav__mobile {
+    display: flex;
+  }
+
   .nav__toggle {
     display: inline-flex;
   }
@@ -932,5 +936,43 @@ img {
   }
   .mobilebar .btn {
     align-self: stretch;
+  }
+}
+
+/* ---------- Selettore lingua ---------- */
+.lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.lang a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.6;
+  padding: 10px 2px;
+  transition: opacity 0.2s;
+}
+
+.lang a:hover,
+.lang .lang--on {
+  opacity: 1;
+}
+
+.lang span {
+  opacity: 0.4;
+}
+
+.nav__mobile {
+  align-items: center;
+  gap: 14px;
+}
+
+@media (min-width: 721px) {
+  .nav__mobile {
+    display: none;
   }
 }

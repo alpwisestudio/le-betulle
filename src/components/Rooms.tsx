@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import dueBetulle from "@/assets/camera-due-betulle.jpg";
 import laBetulla from "@/assets/camera-la-betulla.jpg";
 import casa from "@/assets/angolo-cucina.jpg";
+import type { Dict } from "@/i18n";
 import { Item, Reveal } from "./Reveal";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -23,30 +24,24 @@ function Photo({ src, alt, className, delay = 0 }: { src: StaticImageData; alt: 
   );
 }
 
-const rooms = [
-  { name: "Due Betulle", detail: "Due letti singoli · da [PREZZO]" },
-  { name: "La Betulla", detail: "Letto matrimoniale · da [PREZZO]" },
-  { name: "La Casa delle Betulle", detail: "Appartamento con terrazzo e parcheggio · da [PREZZO]" },
-];
-
-export function Rooms() {
+export function Rooms({ t }: { t: Dict["rooms"] }) {
   return (
     <section id="camere" className="section wrap">
       <Reveal className="section__head">
-        <h2 className="h2">Tre modi di stare</h2>
-        <p className="muted measure">Bagno privato, Wi‑Fi, TV, clima e angolo colazione in ogni camera. Il giardino è di tutti.</p>
+        <h2 className="h2">{t.title}</h2>
+        <p className="muted measure">{t.intro}</p>
       </Reveal>
 
       <div className="rooms__gallery">
-        <Photo src={dueBetulle} alt="Camera Due Betulle con due letti singoli" className="rooms__big" />
+        <Photo src={dueBetulle} alt={t.altDue} className="rooms__big" />
         <div className="rooms__stack">
-          <Photo src={laBetulla} alt="Camera La Betulla con letto matrimoniale" className="rooms__small" delay={0.15} />
-          <Photo src={casa} alt="Zona giorno dell’appartamento La Casa delle Betulle" className="rooms__small" delay={0.3} />
+          <Photo src={laBetulla} alt={t.altLa} className="rooms__small" delay={0.15} />
+          <Photo src={casa} alt={t.altCasa} className="rooms__small" delay={0.3} />
         </div>
       </div>
 
       <Reveal group className="rooms__list">
-        {rooms.map((r) => (
+        {t.items.map((r) => (
           <Item key={r.name} className="rooms__item">
             <h3 className="h3">{r.name}</h3>
             <p className="muted">{r.detail}</p>

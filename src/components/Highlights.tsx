@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import colazione from "@/assets/colazione.jpg";
 import naviglio from "@/assets/naviglio.jpg";
+import type { Dict } from "@/i18n";
 import { Reveal } from "./Reveal";
 
 function ParallaxPhoto({ src, alt }: { src: StaticImageData; alt: string }) {
@@ -20,28 +21,19 @@ function ParallaxPhoto({ src, alt }: { src: StaticImageData; alt: string }) {
   );
 }
 
-const distances = [
-  ["Malpensa Terminal 2", "5 min"],
-  ["Malpensa Terminal 1", "10 min"],
-  ["Stazione, treni per Milano", "10 min"],
-  ["Malpensa Fiere", "10 min"],
-  ["Fiera Milano Rho", "30 min"],
-  ["Lago Maggiore e d’Orta", "30 min"],
-];
-
-export function Highlights() {
+export function Highlights({ t }: { t: Dict["highlights"] }) {
   return (
     <section id="dintorni" className="section wrap highlights">
       <Reveal as="article" className="highlight">
-        <ParallaxPhoto src={colazione} alt="Cappuccino e croissant serviti in camera" />
-        <h3 className="h3 h3--lg">Colazione in camera, anche alle 5</h3>
-        <p className="muted">Cappuccino, tè, croissant freschi. Per le partenze all’alba un cestino pronto; per intolleranze o frutta fresca, basta dirlo prima.</p>
+        <ParallaxPhoto src={colazione} alt={t.breakfastAlt} />
+        <h3 className="h3 h3--lg">{t.breakfastTitle}</h3>
+        <p className="muted">{t.breakfastText}</p>
       </Reveal>
       <Reveal as="article" className="highlight" delay={0.15}>
-        <ParallaxPhoto src={naviglio} alt="Canale tra i campi con papaveri, vicino a Cardano al Campo" />
-        <h3 className="h3 h3--lg">Laghi a mezz’ora, Milano in treno</h3>
+        <ParallaxPhoto src={naviglio} alt={t.areaAlt} />
+        <h3 className="h3 h3--lg">{t.areaTitle}</h3>
         <ul className="distances">
-          {distances.map(([place, time]) => (
+          {t.distances.map(([place, time]) => (
             <li key={place}>
               <span>{place}</span>
               <span className="muted">{time}</span>

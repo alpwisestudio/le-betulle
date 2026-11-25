@@ -2,27 +2,26 @@
 
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
-import { site, whatsappLink } from "@/lib/site";
+import type { Dict, Locale } from "@/i18n";
+import { whatsappLink } from "@/lib/site";
 import { BookingForm } from "./BookingForm";
 import { Reveal } from "./Reveal";
 
-const hello = "Ciao Francesca, vorrei informazioni per un soggiorno a Le Betulle.";
-
-export function Booking() {
+export function Booking({ t, booking, lang }: { t: Dict["prenota"]; booking: Dict["booking"]; lang: Locale }) {
   return (
     <section id="prenota" className="soft">
       <div className="section wrap prenota">
         <Reveal className="prenota__text">
           <h2 className="h1-ish">
-            Prenota con Francesca. <span className="italic">Senza commissioni.</span>
+            {t.title} <span className="italic">{t.titleItalic}</span>
           </h2>
-          <p className="muted measure">Dicci date e orario del volo: ti rispondiamo con disponibilità e prezzo. {site.hours}.</p>
-          <a className="btn btn--outline" href={whatsappLink(hello)} target="_blank" rel="noopener">
-            Oppure scrivi su WhatsApp
+          <p className="muted measure">{t.text}</p>
+          <a className="btn btn--outline" href={whatsappLink(booking.hello)} target="_blank" rel="noopener">
+            {t.whatsapp}
           </a>
         </Reveal>
         <Reveal delay={0.15}>
-          <BookingForm variant="card" />
+          <BookingForm t={booking} lang={lang} variant="card" />
         </Reveal>
       </div>
     </section>
@@ -30,7 +29,7 @@ export function Booking() {
 }
 
 /** Barra fissa su telefono: compare dopo l’hero. */
-export function MobileBar() {
+export function MobileBar({ t, hello }: { t: Dict["mobile"]; hello: string }) {
   const { scrollY } = useScroll();
   const [show, setShow] = useState(false);
   useMotionValueEvent(scrollY, "change", (y) => setShow(y > 600));
@@ -45,10 +44,10 @@ export function MobileBar() {
           transition={{ type: "spring", stiffness: 320, damping: 32 }}
         >
           <a className="btn btn--outline" href={whatsappLink(hello)} target="_blank" rel="noopener">
-            WhatsApp
+            {t.whatsapp}
           </a>
           <a className="btn btn--accent" href="#prenota">
-            Verifica date
+            {t.dates}
           </a>
         </motion.div>
       )}
