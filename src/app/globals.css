@@ -324,11 +324,19 @@ img {
 }
 
 .hero__eyebrow {
+  align-self: flex-start;
   margin: 0;
-  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(18, 22, 15, 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  opacity: 0.9;
+  color: #fff;
 }
 
 .hero__title {
@@ -556,6 +564,16 @@ img {
   align-items: baseline;
   gap: 12px;
   font-size: 14px;
+  min-width: 0;
+}
+
+.reviews__cat > span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.reviews__cat > span:last-child {
+  flex-shrink: 0;
 }
 
 .reviews__catscore {
@@ -808,12 +826,19 @@ img {
 }
 
 .footbar__meta,
-.footbar__credit {
+.footbar__credit,
+.footbar__photo {
   margin: 0;
   font-size: 13px;
   color: rgba(243, 244, 238, 0.7);
 }
 
+.footbar__photo {
+  flex-basis: 100%;
+  font-size: 12px;
+}
+
+.footbar__photo a,
 .footbar__meta a {
   text-decoration: none;
 }
@@ -873,6 +898,12 @@ img {
   }
 }
 
+@media (max-width: 420px) {
+  .reviews__cats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 @media (max-width: 720px) {
   :root {
     --gutter: 16px;
@@ -896,6 +927,12 @@ img {
   }
   .hero__content {
     bottom: 32px;
+  }
+  .hero__eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    padding: 7px 12px;
+    white-space: nowrap;
   }
   .hero__scroll {
     display: none;

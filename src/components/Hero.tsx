@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import betulla from "@/assets/betulla.jpg";
+import betulla from "@/assets/hero-betulle.jpg";
 import type { Dict, Locale } from "@/i18n";
 import { BookingForm } from "./BookingForm";
 
@@ -31,7 +31,7 @@ export function Hero({ t, booking, lang }: { t: Dict["hero"]; booking: Dict["boo
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.8, ease }}
         >
-          <Image src={betulla} alt={t.imageAlt} fill priority placeholder="blur" sizes="100vw" className="cover" />
+          <Image src={betulla} alt={t.imageAlt} fill priority quality={85} placeholder="blur" sizes="100vw" className="cover" />
         </motion.div>
       </motion.div>
       <div className="hero__shade" />

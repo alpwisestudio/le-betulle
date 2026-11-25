@@ -115,6 +115,11 @@ export function Footer({ t, hello }: { t: Dict["footer"]; hello: string }) {
             <span className="badge">{t.badge}</span>
             {t.credit}
           </p>
+          <p className="footbar__photo">
+            <a href="https://unsplash.com/photos/gUSzeVurjQg" target="_blank" rel="noopener">
+              {t.photoCredit}
+            </a>
+          </p>
         </div>
       </div>
     </footer>

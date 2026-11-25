@@ -26,7 +26,7 @@ export const it = {
     eyebrow: "Cardano al Campo · 4 km da Malpensa",
     line1: "Vicini a Malpensa.",
     line2: "Lontani dagli aerei.",
-    imageAlt: "Una betulla del giardino vista dal basso contro il cielo",
+    imageAlt: "Tronchi di betulla visti dal basso contro il cielo",
     scroll: "Scorri alle informazioni",
   },
   booking: {
@@ -74,7 +74,7 @@ export const it = {
       { topic: "La posizione", quote: "Ideale per chi deve prendere l’aereo da Milano Malpensa.", who: "Ireberte" },
       { topic: "Le camere", quote: "Stanze grandi e pulite e isolate perfettamente, dotate di tutti i servizi.", who: "Cristiano" },
     ],
-    categories: ["Staff", "Pulizia", "Comfort", "Qualità‑prezzo", "Wi‑Fi"],
+    categories: ["Staff", "Pulizia", "Comfort", "Qualità-prezzo", "Wi‑Fi"],
   },
   highlights: {
     breakfastAlt: "Cappuccino e croissant serviti in camera",
@@ -136,6 +136,7 @@ export const it = {
       "Animali ammessi senza supplemento",
     ],
     tagline: "Bed & Breakfast · Malpensa",
+    photoCredit: "Foto hero: Irina Iacob su Unsplash",
     top: "Torna su",
     badge: "Anteprima",
     credit: "Proposta realizzata da Alpwise Studio",

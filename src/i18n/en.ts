@@ -27,7 +27,7 @@ export const en: Dict = {
     eyebrow: "Cardano al Campo · 4 km from Malpensa",
     line1: "Close to Malpensa.",
     line2: "Far from the planes.",
-    imageAlt: "A birch tree in the garden seen from below against the sky",
+    imageAlt: "Birch trunks seen from below against the sky",
     scroll: "Scroll to the details",
   },
   booking: {
@@ -137,6 +137,7 @@ export const en: Dict = {
       "Pets welcome at no extra cost",
     ],
     tagline: "Bed & Breakfast · Malpensa",
+    photoCredit: "Hero photo: Irina Iacob on Unsplash",
     top: "Back to top",
     badge: "Preview",
     credit: "Proposal by Alpwise Studio",
